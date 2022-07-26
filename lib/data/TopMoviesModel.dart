@@ -3,10 +3,12 @@
 class TopMoviesModel {
   late String image;
   late String year;
+  late String title;
 
   TopMoviesModel.fromJson(Map<String, dynamic> json) {
     image = json["image"];
     year = json["year"];
+    title = json["title"];
   }
 }
 

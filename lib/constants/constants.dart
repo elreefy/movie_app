@@ -1,9 +1,12 @@
 import 'dart:ui';
 
-String moviesUrl = 'https://imdb-api.com/en/API/Top250Movies/';
+String searchMoviesUrl =   'https://imdb-api.com/en/API/SearchMovie/';
+String moviesUrl =         'https://imdb-api.com/en/API/Top250Movies/';
 String baseUrl = 'https://imdb-api.com/en/API/';
-String upComingMoviesUrl = 'https://imdb-api.com/en/API/ComingSoon/';
+String boxOfficeMoviesUrl = 'https://imdb-api.com/en/API/BoxOffice/';
 const String homeScreen = '/';
+const String movieDetails = '/movieDetails';
+const String searchScreen = '/searchScreen';
 
 class Constants {
   // Constant Color
