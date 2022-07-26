@@ -20,7 +20,21 @@ class DioHelper {
     'Authorization': token ?? '',
     'Content-Type': 'application/json',
   };
-
+  static Future<List<dynamic>> getPredictedMovies({
+     required String apiKey,
+     required String? expression,
+  }) async {
+    try {
+      Response response = await dio.get(searchMoviesUrl, queryParameters:{
+        'apiKey': apiKey,
+         'expression': expression,
+      });
+      return response.data['results'];
+    } catch (e) {
+      print(e.toString());
+      return [];
+    }
+  }
   static Future<List<dynamic>> getTopMovies({
     //String url=baseUrl,
    // Map<String, dynamic>? query,
@@ -43,7 +57,7 @@ class DioHelper {
       return [];
     }
   }
-  static Future<dynamic> getComingMovies({
+  static Future<List<dynamic>> getBoxOfficeMovies({
     //String url=baseUrl,
     // Map<String, dynamic>? query,
 
@@ -54,10 +68,10 @@ class DioHelper {
   }) async {
     // dio.options.headers = getHeaders(lang, token);
     try {
-      Response response = await dio.get(upComingMoviesUrl, queryParameters:{
+      Response response = await dio.get(boxOfficeMoviesUrl, queryParameters:{
         'apiKey': apiKey,
       });
-      return response.data;
+      return response.data['items'];
     } catch (e) {
       print(e.toString());
       return [];

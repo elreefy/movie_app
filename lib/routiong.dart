@@ -1,21 +1,36 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
+import 'package:movie_app/presentation/description_screen.dart';
+import 'package:movie_app/presentation/search_screen.dart';
 import 'constants/constants.dart';
 //import HomeScrean
 import 'package:movie_app/presentation/HomeScreen.dart';
-
+//hello
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
 
     switch (settings.name) {
+
       case homeScreen:
         return MaterialPageRoute(builder: (_) =>
             HomeScreen());
+   //add arguments for movie details screen
+      case movieDetails:
+        return MaterialPageRoute(builder: (_) =>
+            MovieDetails(
+              movie: args,
+            )
+        );
+      case searchScreen:
+        return MaterialPageRoute(builder: (_) =>
+            SearchScreen(
+              expression: args,
+            )
+        );
 
         return _errorRoute();
       default:
-      // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }

@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<MovieCubit>(
           create: (context) => MovieCubit()
             ..getTopMovies()
+                ..getBoOfficeMovies(),
         ),
       ],
       child: MaterialApp(
